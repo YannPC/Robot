@@ -1,0 +1,30 @@
+<div class="product">
+        <div class="product-details">
+          <!-- We just used interpolation and contacted two string-->
+          <!--<img src=" {{ '/assets/images/robot-parts/' + product.imageName}}" alt=" {{product.name}}" />-->
+
+          <img [src]="getImageURL(product)" [alt]="product.name" /> 
+          <!--above we used attribute bidding fuction insted of interpolaion
+          we just have to put [] around the atribute and remove the interpolation -->
+
+          <!--We can also bing and attribute to a return function
+          so insted of this " '/assets/images/robot-parts/' + product.imageName" we create a function-->
+          <div class="product-info">
+            <div class="name">{{product.name}}</div>
+            <div class="description">{{product.description}}</div>
+            <div class="category">Part Type:{{product.category}} </div>
+          </div>
+        </div>
+        <div class="price">
+          <!--div *ngIf=" product.discount ===0" to see only the discount price-->
+          <!-- style="font-weight: bolder;"-->
+          <div 
+          [ngStyle]="{color:product.discount > 0 ? 'green' :''}"
+          [ngClass]="getDiscountedClasses(product)">{{product.price | currency : 'USD'}}</div>
+          <!-- using Pipes in or format insted of this ${{product.price.toFixed(2) we will use pipes |  -->
+          <div *ngIf=" product.discount >0 "class = "discount">
+            {{ (product.price * (1-product.discount))| currency : 'USD'}}
+          </div>
+          <button class="cta" (click)="buyButtonClicked(product)">Buy</button>
+        </div>
+      </div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="filters">
+    <!--using on parameter to pass the filter value
+    <a class="button" routerLink="/catalog/Heads">Heads</a>
+    <a class="button" routerLink="/catalog/Arms">Arms</a>
+    <a class="button" routerLink="/catalog/Torsos">Torsos</a>
+    <a class="button" routerLink="/catalog/Bases">Bases</a>
+    <a class="button" [routerLink]="['/catalog', '']">All</a>
+    -->
+
+    <a class="button" routerLink="/catalog" [queryParams]="{ filter: 'Heads' }"  routerLinkActive="active">Heads</a>
+    <a class="button" routerLink="/catalog" [queryParams]="{ filter: 'Arms' }"  routerLinkActive="active">Arms</a>
+    <a class="button" routerLink="/catalog" [queryParams]="{ filter: 'Torsos' }"  routerLinkActive="active">Torsos</a>
+    <a class="button" routerLink="/catalog" [queryParams]="{ filter: 'Bases' }"  routerLinkActive="active">Bases</a>
+    <!-- for styling and if we want to use routerLinkActive option <a class="button" routerLink="/catalog" [queryParams]="{ filter: '' }"  routerLinkActive="active">All</a> -->
+     <a class="button" routerLink="/catalog" [queryParams]="{ filter: '' }"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All</a>
+    </div>
+
+  <ul class="products">
+    <li class="product-item" *ngFor="let product of getFilteredProducts()">
+      <!--ProductDetails is variable or the member of the details component that we want to inject our data into-->
+      <app-product-details 
+      [product] = "product" 
+      (buy)="addToCart(product)">
+      </app-product-details>
+
+    </li>
+  </ul>  
+</div>
