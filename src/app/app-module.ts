@@ -1,6 +1,6 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Home } from './home/home';
@@ -9,6 +9,7 @@ import { SiteHeader } from './site-header/site-header';
 import { ProductDetails } from './product-details/product-details';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart-component/cart-component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
 
 
 
@@ -25,7 +26,9 @@ import { CartComponent } from './cart-component/cart-component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-  HttpClientModule
+    HttpClientModule,
+    SignInComponent,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IProduct } from './product.model';
 import { Product } from './product';
-import { CartServiceClass } from '../../cart';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartServiceClass } from '../cart-component/cart';
 
 
 

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Home } from './home/home';
 import { Catalog } from './catalog/catalog';
 import { CartComponent } from './cart-component/cart-component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
 
 const routes: Routes = [
 
@@ -29,10 +30,16 @@ const routes: Routes = [
     component: CartComponent,
     title:"Cart -Joe's Robot Shop"
   },
+  {
+    path:'sign-In',
+    component: SignInComponent,
+    
+  },
    {
     path:'',
     redirectTo:'/home',
-    pathMatch:'prefix'
+    pathMatch:'full' // if you use prefix it will always redirect to home and the order matters
+
   }
  
 ];

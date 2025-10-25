@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { IProduct } from '../catalog/product.model';
-import { CartServiceClass } from '../../cart';
+import { CartServiceClass } from './cart';
 @Component({
   selector: 'app-cart-component',
   standalone: false,
